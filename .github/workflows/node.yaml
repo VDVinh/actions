@@ -24,6 +24,10 @@ jobs:
       run: npm ci --ignore-scripts
     - name: npm audit
       run: npm audit
+    - name: check vulnerabilities by snyk
+      uses: snyk/actions/node@master
+      env:
+        SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
     - name: npm test
       run: npm test
       env:
